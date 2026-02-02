@@ -14,18 +14,9 @@
       --accent: #00a2ff;
     }
 
-    * {
-      box-sizing: border-box;
-      font-family: Arial, Helvetica, sans-serif;
-    }
+    * { box-sizing: border-box; font-family: Arial, Helvetica, sans-serif; }
+    body { margin: 0; background: var(--bg); color: var(--text); }
 
-    body {
-      margin: 0;
-      background: var(--bg);
-      color: var(--text);
-    }
-
-    /* Top Navbar */
     .navbar {
       height: 56px;
       background: var(--panel);
@@ -36,126 +27,43 @@
       border-bottom: 1px solid #000;
     }
 
-    .logo {
-      font-weight: bold;
-      font-size: 18px;
-      color: var(--accent);
-    }
+    .logo { font-weight: bold; font-size: 18px; color: var(--accent); }
+    .nav-links { display: flex; gap: 14px; font-size: 14px; }
+    .nav-links a { color: var(--text); text-decoration: none; opacity: 0.85; }
+    .nav-links a:hover { opacity: 1; }
 
-    .nav-links {
-      display: flex;
-      gap: 14px;
-      font-size: 14px;
-    }
-
-    .nav-links a {
-      color: var(--text);
-      text-decoration: none;
-      opacity: 0.85;
-    }
-
-    .nav-links a:hover {
-      opacity: 1;
-    }
-
-    .search {
+    .create-account-btn {
       margin-left: auto;
-      background: var(--panel-2);
+      padding: 8px 14px;
+      background: var(--accent);
       border: none;
-      color: var(--text);
-      padding: 6px 10px;
       border-radius: 6px;
-      width: 220px;
-    }
-
-    /* Layout */
-    .container {
-      display: grid;
-      grid-template-columns: 220px 1fr;
-      min-height: calc(100vh - 56px);
-    }
-
-    /* Sidebar */
-    .sidebar {
-      background: var(--panel);
-      padding: 14px;
-      border-right: 1px solid #000;
-    }
-
-    .sidebar h3 {
-      font-size: 13px;
-      color: var(--muted);
-      margin-top: 18px;
-      margin-bottom: 8px;
-    }
-
-    .sidebar a {
-      display: block;
-      padding: 8px 10px;
-      color: var(--text);
-      text-decoration: none;
-      border-radius: 6px;
-      font-size: 14px;
-    }
-
-    .sidebar a:hover {
-      background: var(--panel-2);
-    }
-
-    /* Main */
-    .main {
-      padding: 20px;
-    }
-
-    .section-title {
-      font-size: 20px;
-      margin-bottom: 12px;
-    }
-
-    .games {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-      gap: 16px;
-    }
-
-    .game-card {
-      background: var(--panel);
-      border-radius: 10px;
-      overflow: hidden;
+      color: #fff;
       cursor: pointer;
-      transition: transform 0.15s ease;
-    }
-
-    .game-card:hover {
-      transform: translateY(-4px);
-    }
-
-    .game-thumb {
-      height: 110px;
-      background: linear-gradient(135deg, #444, #222);
-    }
-
-    .game-info {
-      padding: 10px;
-    }
-
-    .game-title {
       font-size: 14px;
-      margin-bottom: 4px;
     }
 
-    .game-meta {
-      font-size: 12px;
-      color: var(--muted);
-    }
+    .container { display: grid; grid-template-columns: 220px 1fr; min-height: calc(100vh - 56px); }
 
-    /* Footer */
-    .footer {
-      margin-top: 30px;
-      font-size: 12px;
+    .sidebar { background: var(--panel); padding: 14px; border-right: 1px solid #000; }
+    .sidebar h3 { font-size: 13px; color: var(--muted); margin-top: 18px; margin-bottom: 8px; }
+    .sidebar a { display: block; padding: 8px 10px; color: var(--text); text-decoration: none; border-radius: 6px; font-size: 14px; }
+    .sidebar a:hover { background: var(--panel-2); }
+
+    .main { padding: 20px; }
+    .section-title { font-size: 20px; margin-bottom: 12px; }
+    .placeholder {
+      background: var(--panel);
+      height: 200px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       color: var(--muted);
-      text-align: center;
+      font-size: 16px;
+      margin-bottom: 20px;
     }
+    .footer { margin-top: 30px; font-size: 12px; color: var(--muted); text-align: center; }
   </style>
 </head>
 <body>
@@ -166,8 +74,8 @@
       <a href="#">Avatar</a>
       <a href="#">Create</a>
       <a href="#">Marketplace</a>
+      <button class="create-account-btn" onclick="goToCreateAccount()">Create Account</button>
     </div>
-    <input class="search" placeholder="Search Bloxy Bricks" />
   </div>
 
   <div class="container">
@@ -176,36 +84,27 @@
       <a href="#">Profile</a>
       <a href="#">Friends</a>
       <a href="#">Messages</a>
-
       <h3>BUILD</h3>
       <a href="#">My Games</a>
       <a href="#">Create New</a>
-
       <h3>SETTINGS</h3>
       <a href="#">Account</a>
       <a href="#">Security</a>
     </div>
 
     <div class="main">
-      <div class="section-title">Section Title</div>
-
-      <!-- TEMPLATE GRID -->
-      <div class="games">
-        <!-- TEMPLATE CARD -->
-        <div class="game-card">
-          <div class="game-thumb"></div>
-          <div class="game-info">
-            <div class="game-title">Game Title</div>
-            <div class="game-meta">Players / Info</div>
-          </div>
-        </div>
-        <!-- COPY THE CARD ABOVE TO ADD MORE -->
-      </div>
-
+      <div class="section-title">Welcome to Bloxy Bricks</div>
+      <div class="placeholder">Games will appear here</div>
       <div class="footer">
         © 2026 Bloxy Bricks. Not affiliated with Roblox.
       </div>
     </div>
   </div>
+
+  <script>
+    function goToCreateAccount() {
+      window.location.href = 'create_account.html';
+    }
+  </script>
 </body>
 </html>
